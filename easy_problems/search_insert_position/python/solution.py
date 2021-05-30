@@ -22,17 +22,9 @@ class Solution(object):
 
         # Base case: Only one element to check
         if start >= end:
-            if nums[start] == target:
-                return start
-
-            elif nums[start] < target:
-                if start == 10**4:
-                    return 10**4
+            if nums[start] < target:
                 return start + 1
-
-            elif nums[start] > target:
-                if start == 0:
-                    return 0
+            else:
                 return start
 
         # Non-base case
