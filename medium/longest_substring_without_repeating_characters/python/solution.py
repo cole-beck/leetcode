@@ -49,4 +49,5 @@ class Solution(object):
         return best_len
 
 
-                
+        # Solution 3 - Sliding window with dict to track last letter indices (Geeks4Geeks)
+        # implementation
