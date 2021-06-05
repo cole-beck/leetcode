@@ -33,21 +33,34 @@ class Solution(object):
 
 
         # Solution 2 - Sliding Window with slices
-        best_len = 0
-        window = []
+        # best_len = 0
+        # window = []
 
-        for letter in s:
-            if letter in window:
-                if len(window) > best_len:
-                    best_len = len(window)
-                window = window[slice(window.index(letter) + 1, len(window))]
-            window.append(letter)
+        # for letter in s:
+        #     if letter in window:
+        #         if len(window) > best_len:
+        #             best_len = len(window)
+        #         window = window[slice(window.index(letter) + 1, len(window))]
+        #     window.append(letter)
 
-        if len(window) > best_len:
-            best_len = len(window)
+        # if len(window) > best_len:
+        #     best_len = len(window)
 
-        return best_len
+        # return best_len
 
 
         # Solution 3 - Sliding window with dict to track last letter indices (Geeks4Geeks)
-        # implementation
+        letter_idx_dict = {}
+        start_ptr = 0
+        end_ptr = 0
+        max_len = 0
+
+        for end_ptr in range(len(s)):
+            letter = s[end_ptr]
+
+            if letter in letter_idx_dict:
+                start_ptr = max(start_ptr, letter_idx_dict[letter] + 1)
+            max_len = max(max_len, end_ptr - start_ptr + 1)
+            letter_idx_dict[letter] = end_ptr
+
+        return max_len

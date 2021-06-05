@@ -43,4 +43,9 @@ def test():
     print(act8, exp8)
     assert act8 == exp8
 
+    act9 = s.lengthOfLongestSubstring('abcdba')
+    exp9 = 4
+    print(act9, exp9)
+    assert act9 == exp9
+
 test()
