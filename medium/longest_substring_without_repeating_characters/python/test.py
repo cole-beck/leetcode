@@ -2,7 +2,6 @@ from solution import Solution
 
 
 class TestCase:
-
     def __init__(self, case_num, test_string, expected_result):
         self.case_num = case_num
         self.test_string = test_string
@@ -10,6 +9,9 @@ class TestCase:
 
 
 def solution_test():
+
+    solution = Solution()
+
     test_data = [
         TestCase(1, '', 0),
         TestCase(2, 'z', 1),
@@ -22,8 +24,6 @@ def solution_test():
         TestCase(9, 'abcdba', 4)
     ]
 
-    solution = Solution()
-
     print('Test Case -> Actual Result == Expected Result :: Test String')
 
     for i in range(len(test_data)):
@@ -33,6 +33,6 @@ def solution_test():
         test_string = test_data[i].test_string
 
         print(f'{case_number} -> {actual} == {expected} :: {test_string}')
-        assert actual == expected
+        assert (actual == expected), f'Test Case {case_number} failed on string: {test_string}'
 
 solution_test()
