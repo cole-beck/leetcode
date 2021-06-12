@@ -1,51 +1,38 @@
 from solution import Solution
 
-def test():
-    s = Solution()
 
-    act1 = s.lengthOfLongestSubstring('')
-    exp1 = 0
-    print(act1, exp1)
-    assert act1 == exp1
+class TestCase:
 
-    act2 = s.lengthOfLongestSubstring('z')
-    exp2 = 1
-    print(act2, exp2)
-    assert act2 == exp2
+    def __init__(self, case_num, test_string, expected_result):
+        self.case_num = case_num
+        self.test_string = test_string
+        self.expected_result = expected_result
 
-    act3 = s.lengthOfLongestSubstring('bbbbb')
-    exp3 = 1
-    print(act3, exp3)
-    assert act3 == exp3
 
-    act4 = s.lengthOfLongestSubstring('pwwkew')
-    exp4 = 3
-    print(act4, exp4)
-    assert act4 == exp4
+def solution_test():
+    test_data = [
+        TestCase(1, '', 0),
+        TestCase(2, 'z', 1),
+        TestCase(3, 'bbbbb', 1),
+        TestCase(4, 'pwwkew', 3),
+        TestCase(5, 'abbcb', 2),
+        TestCase(6, 'abcabcbb', 3),
+        TestCase(7, 'abcdefghijklmnopqrstuvwxyz', 26),
+        TestCase(8, 'dvdf', 3),
+        TestCase(9, 'abcdba', 4)
+    ]
 
-    act5 = s.lengthOfLongestSubstring('abbcb')
-    exp5 = 2
-    print(act5, exp5)
-    assert act5 == exp5
+    solution = Solution()
 
-    act6 = s.lengthOfLongestSubstring('abcabcbb')
-    exp6 = 3
-    print(act6, exp6)
-    assert act6 == exp6
+    print('Test Case -> Actual Result == Expected Result :: Test String')
 
-    act7 = s.lengthOfLongestSubstring('abcdefghijklmnopqrstuvwxyz')
-    exp7 = 26
-    print(act7, exp7)
-    assert act7 == exp7
+    for i in range(len(test_data)):
+        case_number = test_data[i].case_num
+        actual = solution.lengthOfLongestSubstring(test_data[i].test_string)
+        expected = test_data[i].expected_result
+        test_string = test_data[i].test_string
 
-    act8 = s.lengthOfLongestSubstring('dvdf')
-    exp8 = 3
-    print(act8, exp8)
-    assert act8 == exp8
+        print(f'{case_number} -> {actual} == {expected} :: {test_string}')
+        assert actual == expected
 
-    act9 = s.lengthOfLongestSubstring('abcdba')
-    exp9 = 4
-    print(act9, exp9)
-    assert act9 == exp9
-
-test()
+solution_test()
