@@ -14,12 +14,8 @@ func isAnagram(s string, t string) bool {
 	}
 
 	for _, elem := range t {
-		if val, ok := letter_count[int(elem)]; ok {
-			if val != 0 {
-				letter_count[int(elem)] -= 1
-			} else {
-				return false
-			}
+		if val, ok := letter_count[int(elem)]; ok && val != 0 {
+			letter_count[int(elem)] -= 1
 		} else {
 			return false
 		}
