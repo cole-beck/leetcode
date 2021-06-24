@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	testSolution()
@@ -28,6 +26,7 @@ func testSolution() {
 	}
 	
 	fmt.Println("Test Case -> Actual Result == Expected Result")
+	
 	for _, testCase := range testCases {
 
 		actualResult := twoSum(testCase.inputSlice, testCase.inputTarget)
