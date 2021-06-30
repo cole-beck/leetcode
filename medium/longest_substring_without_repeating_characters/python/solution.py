@@ -49,7 +49,7 @@ class Solution(object):
         # return best_len
 
 
-        # Solution 3 - Sliding window with dict to track last letter indices (Geeks4Geeks)
+        # Solution 3 - Sliding window with dict to track last letter indices
         letter_idx_dict = {}
         start_ptr = 0
         end_ptr = 0
